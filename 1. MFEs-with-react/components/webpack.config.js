@@ -2,7 +2,7 @@ const path = require("path");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 
-const {ModuleFederationPlugin} = require("webpack").container;
+const { ModuleFederationPlugin } = require("webpack").container;
 
 module.exports = {
   mode: "development",
@@ -24,9 +24,9 @@ module.exports = {
       name: "commonComponents",
       filename: "remoteEntry.js",
       exposes: {
-        "./CardDetails" : "/src/components/CardDetails.jsx",
-        "./CardShort": "/src/components/CardShort.jsx"
-      }
+        "./CardDetails": "/src/components/CardDetails.jsx",
+        "./CardShort": "/src/components/CardShort.jsx",
+      },
     }),
     new MiniCssExtractPlugin(),
     new HtmlWebpackPlugin({
@@ -66,5 +66,5 @@ module.exports = {
         type: "asset/resource",
       },
     ],
-  }
+  },
 };

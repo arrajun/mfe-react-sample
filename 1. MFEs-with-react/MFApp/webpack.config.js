@@ -2,7 +2,7 @@ const path = require("path");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 
-const {ModuleFederationPlugin} = require("webpack").container;
+const { ModuleFederationPlugin } = require("webpack").container;
 
 module.exports = {
   mode: "development",
@@ -24,11 +24,13 @@ module.exports = {
       name: "MFHost",
       filename: "remoteEntry.js",
       remotes: {
-        "DetailCardInHost" : "commonComponents@http://localhost:3001/remoteEntry.js",
-        "ShortCardInHost" : "commonComponents@http://localhost:3001/remoteEntry.js",
-        "TodoAppHost": "ToDoApp@http://localhost:3002/remoteEntry.js",
+        DetailCardInHost:
+          "commonComponents@http://localhost:3001/remoteEntry.js",
+        ShortCardInHost:
+          "commonComponents@http://localhost:3001/remoteEntry.js",
+        TodoAppHost: "TodoApp@http://localhost:3002/remoteEntry.js",
       },
-      shared: ["react", "react-dom"]
+      shared: ["react", "react-dom"],
     }),
     new MiniCssExtractPlugin(),
     new HtmlWebpackPlugin({
